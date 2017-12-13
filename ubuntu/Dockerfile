@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y \
         locales \
         zsh \
         git \
+        manpages-dev \
+        manpages-posix-dev \
         cmake \
         gcc \
         libc6-dev \
