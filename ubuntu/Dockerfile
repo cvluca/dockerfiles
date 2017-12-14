@@ -5,21 +5,26 @@ COPY ./.zshrc /root/.zshrc
 
 RUN apt-get update && apt-get install -y \
         locales \
+        vim-nox \
+        less \
+        wget \
+        curl \
+        unzip \
         zsh \
         git \
-        manpages-dev \
-        manpages-posix-dev \
-        cmake \
+        man \
+        make \
         gcc \
         libc6-dev \
         --no-install-recommends \
         && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
     && git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh \
-    && /root/.oh-my-zsh/tools/install.sh
+    && touch /root/.z \
+    && curl -sLf https://spacevim.org/install.sh | bash
 
-ENV LANG en_US.utf8
-ENV SHELL /usr/bin/zsh
+ENV LANG en_US.utf8 \
+    && SHELL /usr/bin/zsh
 
 WORKDIR /root
 
